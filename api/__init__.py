@@ -2,11 +2,13 @@
 
 from flask import Flask
 import os
+from dotenv import load_dotenv
 from flask_cors import CORS
 from .models import db
 from .routes import init_app  # Este es el que registra los blueprints
 from .commands import setup_commands
 
+load_dotenv()
 def create_app():
     # Crea la aplicación Flask
     app = Flask(__name__)
