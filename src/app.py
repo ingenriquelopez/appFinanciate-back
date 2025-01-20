@@ -9,8 +9,11 @@ from api.routes import api_bp
 from api.commands import setup_commands
 from flask_cors import CORS
 
-load_dotenv()
+
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
+
+if ENV == "development":
+    load_dotenv()  # Cargar el archivo .env solo en desarrollo
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../static/')
 
 app = Flask(__name__)
