@@ -5,10 +5,10 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
 from api.models import db
-from api.routes import api_bp
+from api.routes import init_app
 from api.commands import setup_commands
 from flask_cors import CORS
-
+init_app()
 
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 
