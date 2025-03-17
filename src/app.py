@@ -8,7 +8,7 @@ from api.models import db
 from api.routes import init_app
 from api.commands import setup_commands
 from flask_cors import CORS
-init_app()
+
 
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 
@@ -40,6 +40,7 @@ CORS(app)
 setup_commands(app)
 
 
+init_app(app)
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api_bp, url_prefix='/api')
 
